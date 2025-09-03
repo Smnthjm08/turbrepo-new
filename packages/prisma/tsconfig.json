@@ -5,7 +5,7 @@
     "baseUrl": ".",                        // important for paths
     "outDir": "dist",
     "paths": {
-      "@workspace/db/*": ["../../packages/db/src/*"]
+      "@workspace/prisma/*": ["../../packages/prisma/src/*"]
     }
   },
   "include": ["src"]

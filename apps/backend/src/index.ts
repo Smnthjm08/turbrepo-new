@@ -1,17 +1,28 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response, Router } from "express";
 import dotenv from "dotenv";
+import logger from "morgan";
+import { healthCheckController } from "./health";
 
 dotenv.config();
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(logger("dev"));
+
+const PORT = process.env.BACKEND_PORT || 4000;
+
+const v1Route = Router();
+
+// app.use("/api/v1", v1Route);
+
+v1Route.use("/health", healthCheckController);
+
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, World!");
+  res.json({ message: "This is the backend for the muzer app!" });
 });
 
-const PORT = process.env.BE_PORT || 4000;
-console.log("====",PORT);
-
 app.listen(PORT, () => {
-  console.log("Server is running on http://localhost:3000");
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

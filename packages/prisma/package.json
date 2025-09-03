@@ -24,7 +24,7 @@
     "dotenv": "^17.2.2"
   },
   "exports": {
-    "./db": {
+    ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"

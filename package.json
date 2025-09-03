@@ -4,14 +4,18 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "dotenv -- turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+  "prisma:migrate:dev": "dotenv -e ../../.env -- npx prisma migrate dev",
+  "prisma:migrate:reset": "dotenv -e ../../.env -- npx prisma migrate reset"
   },
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
+    "dotenv-cli": "^10.0.0",
     "prettier": "^3.6.2",
+    "prisma": "^6.15.0",
     "turbo": "^2.5.5",
     "typescript": "5.7.3"
   },

@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
   "ui": "tui",
   "tasks": {
     "build": {
@@ -15,7 +16,7 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "env": ["NODE_ENV", "PORT", "BE_PORT", "DATABASE_URL", "DIRECT_URL"]
     }
   }
 }

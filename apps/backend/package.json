@@ -19,6 +19,7 @@
     "@workspace/eslint-config": "workspace:^",
     "@workspace/typescript-config": "workspace:*",
     "@workspace/db": "workspace:*",
+    "@workspace/common": "workspace:*",
     "nodemon": "^3.1.10"
   },
   "dependencies": {
